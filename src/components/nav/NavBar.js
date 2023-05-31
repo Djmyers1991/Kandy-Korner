@@ -6,12 +6,21 @@ export const NavBar = () => {
 
     return (
         <ul className="navbar">
+           <li className="navbar__item active">
+                <Link className="navbar__link" to="/Locations">Locations</Link>
+            </li>
             <li className="navbar__item navbar__logout">
                 <Link className="navbar__link" to="" onClick={() => {
                     localStorage.removeItem("kandy_user")
                     navigate("/", {replace: true})
                 }}>Logout</Link>
             </li>
+            {/* <li className="navbar__item navbar__locations">
+                <Link className="navbar__link" to="" onClick={() => {
+                    localStorage.removeItem("kandy_user")
+                    navigate("/", {replace: true})
+                }}>Locations</Link>
+            </li> */}
         </ul>
     )
 }
