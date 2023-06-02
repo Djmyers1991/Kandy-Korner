@@ -1,9 +1,9 @@
-.locations {
+
+.products {
     display: flex;
     flex-direction: column;
 }
-
-.location {
+.product {
     background-color: rgb(243, 230, 255);
     border: 1px dotted darkmagenta;
     padding: .70rem;

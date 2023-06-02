@@ -7,6 +7,7 @@ export const Login = () => {
     const [email, set] = useState("")
     const navigate = useNavigate()
 
+    // This funciton is when we click on the log in button.
     const handleLogin = (e) => {
         e.preventDefault()
 
@@ -19,7 +20,7 @@ export const Login = () => {
                         id: user.id,
                         staff: user.isStaff
                     }))
-
+                        // We can see that if the user equals the founduser pulled from the API that we can set it equal to whoemver logged in.
                     navigate("/")
                 }
                 else {
@@ -27,6 +28,7 @@ export const Login = () => {
                 }
             })
     }
+    // This is where we are establishing the user identity for which we can grab the data.
 
     return (
         <main className="container--login">
