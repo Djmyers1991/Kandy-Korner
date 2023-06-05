@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import "./ProductsList.css"
 
 
-export const ProductList = () => {
+export const ProductList = ({searchTermState}) => {
 
     const [products, setProducts] = useState([])
     const [filteredProducts, setFiltered] = useState([])
@@ -16,7 +16,16 @@ export const ProductList = () => {
     //Now we are making this string into an object with JSON.parse, so now we have an object with the properties//
     const navigate = useNavigate() //we have to invoke this to switch the navigation between web pages
 
-
+    useEffect(
+        () => {
+            const searchedProducts = products.filter(product => 
+                {
+                    return product.name.toLowerCase().startsWith(searchTermState.toLowerCase())
+        })
+            setFiltered(searchedProducts)
+        },
+        [ searchTermState]
+    )
     useEffect(
         () => {
             fetch(`http://localhost:8088/products?_expand=productType&_sort=name`) 

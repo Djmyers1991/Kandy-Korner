@@ -1,28 +1,25 @@
-import { Outlet, Route, Routes } from "react-router-dom"
-import { LocationsList } from "../Locations/LocationsList"
-import { ProductList } from "../Products/ProductsList"
-import { ProductForm } from "../Products/ProductForm"
+import { CustomerViews } from "./CustomerViews"
+import { EmployeeViews } from "./EmployeeViews"
+
 
 export const ApplicationViews = () => {
-	return (
-        <Routes>
-            <Route path="/" element={
-                <>
-                    <h1>Kandy Korner</h1>
+	
+    const localKandyUser = localStorage.getItem("kandy_user")
+    // We are pulling this local kandy user object out of storage. We're grabbing it from the log in info. 
+    const kandyUserObject = JSON.parse(localKandyUser)
+    //Now we are making this string into an object with JSON.parse, so now we have an object with the properties//
+    
 
-                    <Outlet />
-                </>
-            }>
+    if(kandyUserObject.staff) {
 
-                <Route path="locations" element={ <LocationsList /> } />
-                {/* This route path is what invokes the function and returns
-                the changed state of location. The route path links up with the 
-               locations link in the navbar.js, while the element links up 
-               with the invoked function on the LocationsList button */}
-               <Route path="products" element={ <ProductList /> } />
-               <Route path="product/form" element={ <ProductForm /> } />
-            </Route>
-        </Routes>
-    )
+        return <EmployeeViews />
+
+    }
+else{
+    return <CustomerViews />
+
+}
+
+     
 }
 
