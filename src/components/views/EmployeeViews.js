@@ -3,6 +3,11 @@ import { LocationsList } from "../Locations/LocationsList"
 import { ProductList } from "../Products/ProductsList"
 import { ProductForm } from "../Products/ProductForm"
 import { ProductSearch } from "../Products/ProductSearch"
+import { EmployeeForm } from "../Employees/EmployeeForm"
+import { EmployeeList } from "../Employees/EmployeeList"
+import { EmployeeDetails } from "../Employees/EmployeeDetails"
+import { CustomerList } from "../Customers/CustomerList"
+import { CustomerDetails } from "../Customers/CustomerDetails"
 
 export const EmployeeViews = () => {
 	return (
@@ -22,6 +27,14 @@ export const EmployeeViews = () => {
                with the invoked function on the LocationsList button */}
                <Route path="products" element={<ProductList /> } />
                <Route path="product/form" element={ <ProductForm /> } />
+               <Route path="employees" element={<EmployeeList />} />
+               <Route path="employee/form" element={<EmployeeForm />} />
+               <Route path="employees/:employeeId" element={<EmployeeDetails />} />
+               <Route path="Customers" element={<CustomerList />} />
+               <Route path="Customers/:customerId" element={<CustomerDetails />} />
+
+
+
 
 
                

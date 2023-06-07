@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./ProductsList.css"
+import { EmployeeNavBar } from "../nav/EmployeeNav"
 
 
 export const ProductList = ({searchTermState}) => {
@@ -82,6 +83,8 @@ kandyUserObject.staff
  {/* //all we have to say for the button is to display the top priced candy
         //invoke the function associated with the topPricedCandy */}
 <button onClick={() => navigate("/product/form")}>Create Product</button>
+
+
 
 {/* This button will navigate to a new web page for us to create the form 
 // got to the application views and add the following route
